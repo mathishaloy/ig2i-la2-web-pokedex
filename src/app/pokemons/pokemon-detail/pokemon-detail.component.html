@@ -1,0 +1,33 @@
+<mat-card class="pokemon-card">
+  <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile>
+      <div class="box">
+        <img class="pokemon-image"
+             src="{{'assets/img/official-artwork/' + pokemon.id + '.png'}}"
+             alt="{{'assets/img/official-artwork/' + pokemon.id + '.png'}}">
+        <div>
+          No. {{pad(pokemon.id, 3)}}
+        </div>
+      </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          {{pokemon.name}}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-chip-list aria-label="Fish selection">
+            <mat-chip *ngFor="let type of pokemon.types">{{type}}</mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item role="listitem">Taille: {{pokemon.height}} m</mat-list-item>
+        <mat-list-item role="listitem">Poids: {{pokemon.weight}} kg</mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      {{pokemon.description}}
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+

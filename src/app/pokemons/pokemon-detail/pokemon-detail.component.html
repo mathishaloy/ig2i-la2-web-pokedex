@@ -1,3 +1,4 @@
+<mat-icon [routerLink]="['']">arrow_back_ios</mat-icon>
 <mat-card class="pokemon-card">
   <mat-grid-list cols="2" rowHeight="200px">
     <mat-grid-tile>
@@ -9,12 +10,13 @@
           No. {{pad(pokemon.id, 3)}}
         </div>
       </div>
-
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-list role="list">
         <mat-list-item role="listitem">
           {{pokemon.name}}
+          <mat-icon (click)="pokemonSound.play()">play_circle_outline</mat-icon>
+          <audio autoplay #pokemonSound src="{{'assets/audio/' + pokemon.id + '.mp3'}}"></audio>
         </mat-list-item>
         <mat-list-item role="listitem">
           <mat-chip-list aria-label="Fish selection">

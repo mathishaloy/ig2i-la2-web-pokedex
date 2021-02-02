@@ -15,8 +15,8 @@ export class PokemonService {
   ) {
   }
 
-  getPokemons(): Observable<any> {
-    return this.http.get<any>(this.apiUrl + '/pokemons');
+  getPokemons(offset): Observable<any> {
+    return this.http.get<any>(this.apiUrl + '/pokemons?limit=20&offset=' + offset);
   }
 
   getPokemonById(id): Observable<any> {

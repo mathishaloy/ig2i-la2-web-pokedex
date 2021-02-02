@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list infiniteScroll (scrolled)="onScroll()">
   <mat-list-item
     [routerLink]="['detail', pokemon.id]"
     *ngFor="let pokemon of pokemons">

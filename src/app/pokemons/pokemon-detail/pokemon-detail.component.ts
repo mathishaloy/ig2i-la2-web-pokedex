@@ -26,7 +26,9 @@ export class PokemonDetailComponent implements OnInit {
 
   pad(num, size): string {
     num = num.toString();
-    while (num.length < size) { num = '0' + num; }
+    while (num.length < size) {
+      num = '0' + num;
+    }
     return num;
   }
 

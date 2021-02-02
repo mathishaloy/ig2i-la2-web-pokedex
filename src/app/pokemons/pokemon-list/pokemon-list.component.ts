@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PokemonService} from '../pokemon.service';
 
 @Component({
@@ -8,12 +8,20 @@ import {PokemonService} from '../pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons;
+  pokemons = [];
+  offset = 0;
 
-  constructor(private pokemonService: PokemonService) { }
-
-  ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe(result => this.pokemons = result.data);
+  constructor(private pokemonService: PokemonService) {
   }
 
+  ngOnInit(): void {
+    this.pokemonService.getPokemons(this.offset).subscribe(result => this.pokemons = this.pokemons.concat(result.data));
+  }
+
+  onScroll(): void {
+    this.offset += 20;
+    if (this.offset <= 150) {
+      this.pokemonService.getPokemons(this.offset).subscribe(result => this.pokemons = this.pokemons.concat(result.data));
+    }
+  }
 }

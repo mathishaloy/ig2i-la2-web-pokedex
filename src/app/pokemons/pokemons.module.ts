@@ -8,6 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatChipsModule} from '@angular/material/chips';
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 const routes: Routes = [
   {path: '', component: PokemonListComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
     MatCardModule,
     MatGridListModule,
     MatChipsModule,
+    InfiniteScrollModule,
     RouterModule.forRoot(routes)
   ]
 })

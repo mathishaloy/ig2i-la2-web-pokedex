@@ -16,7 +16,15 @@ export class PokemonService {
   }
 
   getPokemons(offset): Observable<any> {
-    return this.http.get<any>(this.apiUrl + '/pokemons?limit=20&offset=' + offset);
+    const url = this.apiUrl + '/pokemons?limit=25&offset=' + offset;
+    console.log(url);
+    return this.http.get<any>(url);
+  }
+
+  getPokemonsWithSearch(offset, search): Observable<any> {
+    const url = this.apiUrl + '/pokemons?limit=25&offset=' + offset + '&search=' + search;
+    console.log(url);
+    return this.http.get<any>(url);
   }
 
   getPokemonById(id): Observable<any> {

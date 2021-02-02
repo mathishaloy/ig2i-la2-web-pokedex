@@ -1,7 +1,17 @@
-<mat-list infiniteScroll (scrolled)="onScroll()">
+<mat-list infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false" class="pokemon-list">
+  <form class="pokemon-form">
+    <mat-form-field class="pokemon-full-width"
+                    color="accent">
+      <mat-label>Recherche Pokemon</mat-label>
+      <input matInput placeholder="Pikachu"
+             [(ngModel)]="search"
+             name="search"
+             (ngModelChange)="onSearchChange()">
+    </mat-form-field>
+  </form>
   <mat-list-item
-    [routerLink]="['detail', pokemon.id]"
-    *ngFor="let pokemon of pokemons">
+    (click)="pokemonEmit(pokemon.id)"
+    *ngFor="let pokemon of pokemons" class="animate__animated">
     <img matListAvatar
          src="{{'assets/img/sprites/' + pokemon.id + '.png'}}"
          alt="{{'assets/img/sprites/' + pokemon.id + '.png'}}">
@@ -11,3 +21,4 @@
     </p>
   </mat-list-item>
 </mat-list>
+

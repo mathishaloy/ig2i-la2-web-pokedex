@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../pokemon.service';
 
@@ -10,6 +10,9 @@ import {PokemonService} from '../pokemon.service';
 export class PokemonDetailComponent implements OnInit {
 
   pokemon;
+  imageFlag = true;
+
+  @Input() pokemonId = 1;
 
   constructor(
     private pokemonService: PokemonService,
@@ -18,9 +21,18 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const pokemonId = this.route.snapshot.paramMap.get('id');
-    this.pokemonService.getPokemonById(pokemonId).subscribe(
+    this.pokemonService.getPokemonById(this.pokemonId).subscribe(
       (result) => this.pokemon = result
+    );
+  }
+
+  ngOnChanges(): void {
+    this.imageFlag = false;
+    this.pokemonService.getPokemonById(this.pokemonId).subscribe(
+      (result) => {
+        this.pokemon = result;
+        this.imageFlag = true;
+      }
     );
   }
 
@@ -32,4 +44,8 @@ export class PokemonDetailComponent implements OnInit {
     return num;
   }
 
+  shake() {
+    this.imageFlag = false;
+    setTimeout(() => this.imageFlag = true, 10);
+  }
 }

@@ -1,9 +1,8 @@
-<mat-icon [routerLink]="['']">arrow_back_ios</mat-icon>
-<mat-card class="pokemon-card">
+<mat-card class="pokemon-card" *ngIf="pokemon">
   <mat-grid-list cols="2" rowHeight="200px">
     <mat-grid-tile>
       <div class="box">
-        <img class="pokemon-image"
+        <img class="pokemon-image animate__animated" [class.animate__tada]="imageFlag"
              src="{{'assets/img/official-artwork/' + pokemon.id + '.png'}}"
              alt="{{'assets/img/official-artwork/' + pokemon.id + '.png'}}">
         <div>
@@ -15,7 +14,7 @@
       <mat-list role="list">
         <mat-list-item role="listitem">
           {{pokemon.name}}
-          <mat-icon (click)="pokemonSound.play()">play_circle_outline</mat-icon>
+          <mat-icon (click)="pokemonSound.play(); shake()">play_circle_outline</mat-icon>
           <audio autoplay #pokemonSound src="{{'assets/audio/' + pokemon.id + '.mp3'}}"></audio>
         </mat-list-item>
         <mat-list-item role="listitem">

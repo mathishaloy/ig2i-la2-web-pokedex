@@ -50,13 +50,8 @@ export class PokemonListComponent implements OnInit {
 
   getPokemons(): void {
     if (this.offset <= 150) {
-      if (this.search === '') {
-        this.pokemonService.getPokemons(this.offset)
-          .subscribe(result => this.pokemons = this.pokemons.concat(result.data));
-      } else {
-        this.pokemonService.getPokemonsWithSearch(this.offset, this.search)
-          .subscribe(result => this.pokemons = this.pokemons.concat(result.data));
-      }
+      this.pokemonService.getPokemons(this.offset, this.search !== '' ? this.search : undefined)
+        .subscribe(result => this.pokemons = this.pokemons.concat(result.data));
     }
   }
 }

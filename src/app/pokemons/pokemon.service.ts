@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, empty, of, Subscription} from 'rxjs';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +15,24 @@ export class PokemonService {
   ) {
   }
 
-  getPokemons(offset): Observable<any> {
-    const url = this.apiUrl + '/pokemons?limit=25&offset=' + offset;
-    console.log(url);
-    return this.http.get<any>(url);
-  }
+  getPokemons(offset?: number, search?: string, limit = 25): Observable<any> {
+    const url = this.apiUrl + '/pokemons';
+    let params = new HttpParams();
 
-  getPokemonsWithSearch(offset, search): Observable<any> {
-    const url = this.apiUrl + '/pokemons?limit=25&offset=' + offset + '&search=' + search;
+    if (offset) {
+      params = params.set('offset', `${offset}`);
+    }
+
+    if (limit) {
+      params = params.set('limit', `${limit}`);
+    }
+
+    if (search) {
+      params = params.set('search', search);
+    }
+
     console.log(url);
-    return this.http.get<any>(url);
+    return this.http.get<any>(url, {params});
   }
 
   getPokemonById(id): Observable<any> {

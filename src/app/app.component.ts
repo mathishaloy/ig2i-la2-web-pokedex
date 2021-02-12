@@ -15,7 +15,7 @@ export class AppComponent {
   links = [
     {
       name: 'Pokedex',
-      link: ''
+      link: 'pokedex'
     },
     {
       name: 'Mon Equipe',
@@ -30,7 +30,7 @@ export class AppComponent {
 
   onNavigate(): void {
     switch (this.router.url) {
-      case '/': {
+      case '/pokedex': {
         this.activeLink = this.links[0].name;
         break;
       }

@@ -10,7 +10,7 @@ import {forkJoin, Observable} from 'rxjs';
 })
 export class TeamDetailComponent implements OnInit {
 
-  team;
+  team = [];
 
   constructor(
     private teamsService: TeamsService,

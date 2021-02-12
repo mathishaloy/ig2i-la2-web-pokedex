@@ -1,0 +1,27 @@
+<mat-list infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false" class="pokemon-list">
+  <form class="pokemon-form">
+    <mat-form-field class="pokemon-full-width"
+                    color="accent">
+      <mat-label>Recherche Pokemon</mat-label>
+      <input matInput placeholder="Pikachu"
+             [(ngModel)]="search"
+             name="search"
+             (ngModelChange)="onSearchChange()">
+    </mat-form-field>
+  </form>
+  <mat-list-item
+    (click)="pokemonEmit(pokemon.id)"
+    *ngFor="let pokemon of pokemons" class="animate__animated">
+    <img matListAvatar
+         src="{{'assets/img/sprites/' + pokemon.id + '.png'}}"
+         alt="{{'assets/img/sprites/' + pokemon.id + '.png'}}">
+    <p matLine>
+      <span> {{pokemon.id}} </span>
+      <span class="demo-2"> -- {{pokemon.name}} </span>
+      <button mat-icon-button color="accent" aria-label="Add pokemon to team" class="float-right small-icon-button">
+        <mat-icon>add</mat-icon>
+      </button>
+    </p>
+  </mat-list-item>
+</mat-list>
+

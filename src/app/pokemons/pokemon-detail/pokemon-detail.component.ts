@@ -44,7 +44,7 @@ export class PokemonDetailComponent implements OnInit {
     return num;
   }
 
-  shake() {
+  shake(): void {
     this.imageFlag = false;
     setTimeout(() => this.imageFlag = true, 10);
   }

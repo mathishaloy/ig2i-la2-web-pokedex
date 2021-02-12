@@ -1,0 +1,21 @@
+.pokemon-image {
+  height: 150px;
+  width: 150px;
+}
+
+.pokemon-grid {
+  margin: 10px;
+}
+
+.pokemon-tile {
+  border-radius: 10px;
+  background: #424242;
+}
+
+.float-right {
+  float: right;
+}
+
+.pokemon-name {
+  margin: 0;
+}

@@ -1,0 +1,37 @@
+.pokemon-list {
+  overflow-y: scroll;
+  height: calc(100vh - 58px);
+  min-width: 300px;
+}
+
+.pokemon-form {
+
+}
+
+.pokemon-full-width {
+  min-width: 300px;
+  padding: 5px;
+}
+
+.float-right {
+  float: right;
+}
+
+.small-icon-button {
+  width: 16px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+  padding: 0;
+}
+
+.mat-icon {
+  width: 16px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+}
+
+.material-icons {
+  font-size: 16px !important;
+}
+
+

@@ -1,0 +1,26 @@
+<mat-card class="card">
+  <form #f="ngForm">
+    <p>
+      <mat-form-field appearance="outline" class="field" color="accent">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="example@mail.com" name="email" ngModel required #email="ngModel">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="field" color="accent">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput placeholder="" type="password" name="password" ngModel required #password="ngModel">
+      </mat-form-field>
+    </p>
+    <div class="form-button">
+      <button mat-raised-button color="accent" (click)="onLogin(f)">Authentifier</button>
+      <button mat-raised-button color="accent" (click)="onRegister(f)">Enregistrer</button>
+    </div>
+  </form>
+  <div class="form-button">
+    <button mat-raised-button color="accent">
+      <mat-icon [routerLink]="['']">arrow_back_ios</mat-icon>
+      Retour
+    </button>
+  </div>
+</mat-card>

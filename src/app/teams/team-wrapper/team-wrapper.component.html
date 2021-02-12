@@ -1,0 +1,8 @@
+<mat-drawer-container class="pokemon-list">
+  <mat-drawer mode="side" opened>
+    <app-team-pokemon-list (pokemonEvent)="addId($event);"></app-team-pokemon-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-team-detail></app-team-detail>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,1 +1,9 @@
-<app-pokedex></app-pokedex>
+<nav mat-tab-nav-bar color="accent" mat-align-tabs="center">
+  <a color="accent" mat-tab-link *ngFor="let link of links"
+     (click)="activeLink = link.name"
+     [active]="activeLink == link.name"
+     [routerLink]="[link.link]"> {{link.name}} </a>
+</nav>
+<router-outlet (activate)="onNavigate()">
+</router-outlet>
+
